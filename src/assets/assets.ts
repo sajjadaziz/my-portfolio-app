@@ -31,8 +31,10 @@ import web1 from "./web1.png";
 import web2 from "./web2.png";
 import web3 from "./web3.png";
 import open_link from "./open_link.svg";
+import download from "./download.svg";
+import resume from "./Sajjad_Aziz_Resume.pdf";
 
-export const skills = [
+export const skills = {
   react,
   angular,
   typescript,
@@ -45,7 +47,7 @@ export const skills = [
   sql,
   git,
   figma,
-];
+};
 
 export const assets = {
   close_icon,
@@ -69,6 +71,8 @@ export const assets = {
   web2,
   web3,
   open_link,
+  download,
+  resume,
 };
 
 export default assets;

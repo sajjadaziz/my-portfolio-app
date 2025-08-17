@@ -14,9 +14,34 @@ const Hero = () => {
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">
           Sajjad Aziz
         </h1>
-        <h4 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-medium text-[#5044e5]">
+        <h4 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-extrabold text-[#5044e5]">
           Frontend Developer
         </h4>
+        <div className="flex gap-2.5">
+          <a
+            href="#contact-me"
+            className="w-36 flex content-center justify-center gap-2 bg-primary text-white text-sm py-3 rounded-full cursor-pointer hover:scale-103 transition-all"
+          >
+            Contact me{" "}
+            <img
+              alt="Submit contact form"
+              className="w-4"
+              src={assets.arrow_icon}
+            />
+          </a>
+          <a
+            href={assets.resume}
+            download="Sajjad_Aziz_Resume.pdf"
+            className="w-36 flex content-center justify-center gap-2 bg-[#3B3B3B] text-white text-sm py-3 rounded-full cursor-pointer hover:scale-103 transition-all"
+          >
+            My resume{" "}
+            <img
+              alt="Submit contact form"
+              className="w-4"
+              src={assets.download}
+            />
+          </a>
+        </div>
       </div>
 
       <div className="md:w-1/2 flex justify-center">
