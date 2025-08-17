@@ -1,6 +1,6 @@
-import React from "react";
 import assets from "../assets/assets";
 import { Theme } from "../types/Theme";
+import { motion } from "motion/react";
 
 type FooterProps = {
   theme: Theme;
@@ -8,7 +8,13 @@ type FooterProps = {
 
 const Footer = ({ theme }: FooterProps) => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 py-8">
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="bg-gray-100 dark:bg-gray-900 py-8"
+    >
       <div className="flex flex-wrap justify-center gap-6 sm:gap-8 text-gray-700 dark:text-white text-[10px] sm:text-base mb-6">
         <a href="#" className="hover:border-b hover:border-gray-500 transition">
           Home
@@ -39,7 +45,13 @@ const Footer = ({ theme }: FooterProps) => {
         </a>
       </div>
 
-      <div className="flex justify-center gap-6 sm:gap-8">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        viewport={{ once: true }}
+        className="flex justify-center gap-6 sm:gap-8"
+      >
         <a
           href="https://github.com/sajjadaziz?tab=repositories"
           target="_blank"
@@ -69,8 +81,8 @@ const Footer = ({ theme }: FooterProps) => {
             className="w-6 h-6 hover:scale-110 transition-transform"
           />
         </a>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 

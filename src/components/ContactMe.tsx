@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import assets from "../assets/assets";
 import toast from "react-hot-toast";
+import { motion } from "motion/react";
 
 const ContactMe = () => {
   const [formData, setFormData] = useState({
@@ -53,39 +54,61 @@ const ContactMe = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ staggerChildren: 0.2 }}
       id="contact-me"
       className="flex flex-col md:flex-row items-center justify-between w-full px-10 md:px-16 pt-[72px] pb-10 dark:text-white text-[#3B3B3B]"
     >
       <div className="flex flex-col justify-center md:w-1/2 space-y-4 md:space-y-6 md:pr-20">
-        <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl leading-8 sm:leading-10 md:leading-12 lg:leading-16 font-bold">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl leading-8 sm:leading-10 md:leading-12 lg:leading-16 font-bold"
+        >
           Got a project in <span className="text-[#5044e5]">mind?</span>
-        </h3>
-        <p className="text-sm sm:text-sm md:text-base lg:text-lg font-medium">
-          I’m currently open to new opportunities, whether it’s a freelance
-          project or a full-time position. Feel free to reach out to me anytime
-          — I’d be happy to discuss how we can work together.
-        </p>
-        <div className="flex items-center gap-2.5 text-sm md:text-base">
-          <img alt="Email me" className="w-5 md:w-6" src={assets.mail_icon} />
-          <span>azizmsajjad@gmail.com</span>
-        </div>
-        <div className="flex items-center gap-2.5 text-sm md:text-base">
-          <img alt="Email me" className="w-5 md:w-6" src={assets.call_icon} />
-          <span>+92 344 2959588</span>
-        </div>
-        <div className="flex items-center gap-2.5 text-sm md:text-base">
-          <img
-            alt="Email me"
-            className="w-5 md:w-6"
-            src={assets.location_icon}
-          />
-          <span>Karachi</span>
-        </div>
+        </motion.h3>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="space-y-4 md:space-y-6"
+        >
+          <p className="text-sm sm:text-sm md:text-base lg:text-lg font-medium">
+            I’m currently open to new opportunities, whether it’s a freelance
+            project or a full-time position. Feel free to reach out to me
+            anytime — I’d be happy to discuss how we can work together.
+          </p>
+          <div className="flex items-center gap-2.5 text-sm md:text-base">
+            <img alt="Email me" className="w-5 md:w-6" src={assets.mail_icon} />
+            <span>azizmsajjad@gmail.com</span>
+          </div>
+          <div className="flex items-center gap-2.5 text-sm md:text-base">
+            <img alt="Email me" className="w-5 md:w-6" src={assets.call_icon} />
+            <span>+92 344 2959588</span>
+          </div>
+          <div className="flex items-center gap-2.5 text-sm md:text-base">
+            <img
+              alt="Email me"
+              className="w-5 md:w-6"
+              src={assets.location_icon}
+            />
+            <span>Karachi</span>
+          </div>
+        </motion.div>
       </div>
 
       <div className="w-full md:w-1/2 flex justify-center pt-10 md:pt-0">
-        <form
+        <motion.form
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          viewport={{ once: true }}
           onSubmit={handleSubmit}
           className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5 max-w-2xl w-full"
         >
@@ -155,9 +178,9 @@ const ContactMe = () => {
               src={assets.arrow_icon}
             />
           </button>
-        </form>
+        </motion.form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

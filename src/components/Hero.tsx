@@ -1,5 +1,5 @@
-import React from "react";
 import assets from "../assets/assets";
+import { motion } from "motion/react";
 
 const Hero = () => {
   return (
@@ -8,16 +8,30 @@ const Hero = () => {
       className="flex flex-col pt-15 md:pt-0 md:flex-row items-center justify-between w-full px-6 md:px-16 dark:text-white text-[#3B3B3B]"
     >
       <div className="flex flex-col justify-center md:w-1/2 space-y-4 md:space-y-6">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center md:text-left font-bold">
-          Hi, I am
-        </h3>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center md:text-left font-bold">
-          Sajjad Aziz
-        </h1>
-        <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-center md:text-left font-extrabold text-[#5044e5]">
-          Frontend Developer
-        </h4>
-        <div className="flex gap-2.5">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="space-y-4 md:space-y-6"
+        >
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center md:text-left font-bold">
+            Hi, I am
+          </h3>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center md:text-left font-bold">
+            Sajjad Aziz
+          </h1>
+          <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-center md:text-left font-extrabold text-[#5044e5]">
+            Frontend Developer
+          </h4>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="flex gap-2.5"
+        >
           <a
             href="#contact-me"
             className="w-28 md:w-36 flex items-center justify-center gap-2 bg-primary text-white text-xs md:text-sm py-3 rounded-full cursor-pointer hover:scale-103 transition-all"
@@ -41,16 +55,22 @@ const Hero = () => {
               src={assets.download}
             />
           </a>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="md:w-1/2 flex justify-center pt-10 md:pt-0">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+        viewport={{ once: true }}
+        className="md:w-1/2 flex justify-center pt-10 md:pt-0"
+      >
         <img
           src={assets.hero}
           alt="Man using laptop"
           className="w-3/4 sm:w-2/3 md:w-full lg:w-auto object-contain"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

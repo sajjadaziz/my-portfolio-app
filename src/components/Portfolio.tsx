@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import assets from "../assets/assets";
 import { ProjectLanguage } from "../types/ProjectLanguage";
+import { motion } from "motion/react";
 
 const Portfolio = () => {
   const projectList = [
@@ -99,12 +100,31 @@ const Portfolio = () => {
   }, [filter]);
 
   return (
-    <div id="portfolio" className="px-6 md:px-16 py-12 pt-[72px]">
-      <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-left mb-8 dark:text-white text-gray-800">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ staggerChildren: 0.2 }}
+      id="portfolio"
+      className="px-6 md:px-16 py-12 pt-[72px]"
+    >
+      <motion.h3
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-left mb-8 dark:text-white text-gray-800"
+      >
         Some of my <span className="text-[#5044e5]">works</span>
-      </h3>
+      </motion.h3>
 
-      <div className="flex gap-4 mb-10 md:mb-6 text-xs md:text-base">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        viewport={{ once: true }}
+        className="flex gap-4 mb-10 md:mb-6 text-xs md:text-base"
+      >
         <button
           className={`px-4 py-2 rounded-full text-white ${
             filter === "All" ? "bg-[#5044e5]" : "bg-[#3B3B3B]"
@@ -124,10 +144,14 @@ const Portfolio = () => {
             {lang}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       <div className="relative px-13 md:px-14">
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
           onClick={() => scroll("left")}
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#3B3B3B] text-white p-3 rounded-[50%] z-10"
         >
@@ -136,14 +160,18 @@ const Portfolio = () => {
             className="rotate-180"
             src={assets.arrow_icon}
           />
-        </button>
+        </motion.button>
 
         <div
           ref={sliderRef}
           className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth"
         >
-          {filteredProjects.map((project) => (
-            <div
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
               key={project.name}
               className="min-w-[225px] max-w-[225px] md:min-w-[300px] md:max-w-[300px] bg-[#3B3B3B] rounded-lg p-4 flex-shrink-0"
             >
@@ -167,18 +195,22 @@ const Portfolio = () => {
                   <img alt="" src={assets.open_link} />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
           onClick={() => scroll("right")}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#3B3B3B] text-white p-3 rounded-[50%] z-10"
         >
           <img alt="Scroll to left" src={assets.arrow_icon} />
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
