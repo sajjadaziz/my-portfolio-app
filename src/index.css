@@ -2,10 +2,13 @@
 @import "tailwindcss";
 
 * {
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
+  font-family: "Manrope";
 }
 
 @theme {
   --color-primary: #5044e5;
+}
+
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }

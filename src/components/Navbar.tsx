@@ -24,13 +24,14 @@ const Navbar = ({ theme, setTheme }: ThemeSwitcherProps) => {
 
   return (
     <div className="flex justify-between item-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70">
-      <div>
-        <img
-          src={theme === Theme.Dark ? assets.logo_dark : assets.logo}
-          className="w-8 sm:w-10"
-          alt="Logo"
-        />
-      </div>
+      <a
+        href="#"
+        onClick={() => setSidebarOpen(false)}
+        className="text-xl md:text-3xl font-extrabold"
+      >
+        <span className="text-[#3B3B3B] dark:text-white">Sajjad </span>
+        <span className="text-[#5044e5]">A.</span>
+      </a>
       <div
         className={`text-gray-700 dark:text-white sm:text-sm ${
           !sidebarOpen
@@ -80,9 +81,9 @@ const Navbar = ({ theme, setTheme }: ThemeSwitcherProps) => {
           Contact Me
         </a>
       </div>
-      <div className="flex items-center gap-2 sm:gap-4">
+      <div className="flex items-center gap-2 sm:gap-4 sm:hidden">
         <img
-          className="w-8 sm:hidden"
+          className="w-8"
           src={theme === Theme.Dark ? assets.menu_icon_dark : assets.menu_icon}
           alt="Open Menu"
           onClick={() => setSidebarOpen(true)}
