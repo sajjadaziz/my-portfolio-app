@@ -3,7 +3,7 @@ import { skills } from "../assets/assets";
 
 const Skills = () => {
   return (
-    <div id="skills" className="px-6 md:px-16 py-12">
+    <div id="skills" className="px-6 md:px-16 py-12 md:pt-[72px]">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 dark:text-white text-gray-800">
         What I’m good <span className="text-[#5044e5]">at</span>
       </h2>

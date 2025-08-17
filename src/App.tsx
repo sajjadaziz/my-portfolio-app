@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import ContactMe from "./components/ContactMe";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>(Theme.Light);
@@ -16,6 +17,7 @@ const App = () => {
       <About />
       <Skills />
       <ContactMe />
+      <Footer theme={theme} />
     </div>
   );
 };

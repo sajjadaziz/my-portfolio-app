@@ -15,7 +15,7 @@ const About = () => {
   return (
     <div
       id="about-me"
-      className="flex flex-col md:flex-row items-center justify-between w-full px-6 md:px-16 dark:text-white text-[#3B3B3B]"
+      className="flex flex-col md:flex-row items-center justify-between w-full px-6 md:px-16 md:pt-[72px] dark:text-white text-[#3B3B3B]"
     >
       <div className="flex flex-col justify-center md:w-1/2 space-y-4 md:space-y-6 md:pr-10">
         <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold">

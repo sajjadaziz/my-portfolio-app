@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import logo_dark from "./logo_dark.svg";
 import close_icon from "./close_icon.svg";
 import menu_icon from "./menu_icon.svg";
 import menu_icon_dark from "./menu_icon_dark.svg";
@@ -23,6 +21,12 @@ import arrow_icon from "./arrow_icon.svg";
 import mail_icon from "./mail_icon.svg";
 import call_icon from "./call_icon.svg";
 import location_icon from "./location_icon.svg";
+import github from "./github.svg";
+import github_dark from "./github_dark.svg";
+import linkedin from "./linkedin.svg";
+import linkedin_dark from "./linkedin_dark.svg";
+import email from "./email.png";
+import email_dark from "./email_dark.png";
 
 export const skills = [
   react,
@@ -40,8 +44,6 @@ export const skills = [
 ];
 
 export const assets = {
-  logo,
-  logo_dark,
   close_icon,
   menu_icon,
   menu_icon_dark,
@@ -53,6 +55,12 @@ export const assets = {
   mail_icon,
   call_icon,
   location_icon,
+  github,
+  github_dark,
+  linkedin,
+  linkedin_dark,
+  email,
+  email_dark,
 };
 
 export default assets;

@@ -24,12 +24,9 @@ const Navbar = ({ theme, setTheme }: ThemeSwitcherProps) => {
 
   return (
     <div className="flex justify-between item-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70">
-      <div>
-        <img
-          src={theme === Theme.Dark ? assets.logo_dark : assets.logo}
-          className="w-8 sm:w-10"
-          alt="Logo"
-        />
+      <div className="text-3xl font-extrabold">
+        <span className="text-[#3B3B3B]">Sajjad </span>
+        <span className="text-[#5044e5]">A.</span>
       </div>
       <div
         className={`text-gray-700 dark:text-white sm:text-sm ${
