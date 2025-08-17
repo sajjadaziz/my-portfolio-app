@@ -82,12 +82,14 @@ const Portfolio = () => {
 
   const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
-      const isMobile = window.innerWidth < 768; // md breakpoint
-      const cardWidth = isMobile
-        ? sliderRef.current.children[0].clientWidth + 24
-        : sliderRef.current.offsetWidth / 2;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -cardWidth : cardWidth,
+      const container = sliderRef.current;
+      const scrollAmount =
+        window.innerWidth < 768
+          ? container.children[0].clientWidth + 24
+          : container.offsetWidth;
+
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
     }
@@ -162,18 +164,18 @@ const Portfolio = () => {
           />
         </motion.button>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
           ref={sliderRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth"
+          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory"
         >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
+          {filteredProjects.map((project) => (
+            <div
               key={project.name}
-              className="min-w-[225px] max-w-[225px] md:min-w-[300px] md:max-w-[300px] bg-[#3B3B3B] rounded-lg p-4 flex-shrink-0"
+              className="min-w-full max-w-full md:min-w-[300px] md:max-w-[300px] bg-[#3B3B3B] rounded-lg p-4 flex-shrink-0 snap-start"
             >
               <img
                 src={project.image}
@@ -195,9 +197,9 @@ const Portfolio = () => {
                   <img alt="" src={assets.open_link} />
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.button
           initial={{ opacity: 0, y: 20 }}
