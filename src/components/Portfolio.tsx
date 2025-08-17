@@ -81,9 +81,12 @@ const Portfolio = () => {
 
   const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
-      const scrollAmount = sliderRef.current.offsetWidth / 2;
+      const isMobile = window.innerWidth < 768; // md breakpoint
+      const cardWidth = isMobile
+        ? sliderRef.current.children[0].clientWidth + 24
+        : sliderRef.current.offsetWidth / 2;
       sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+        left: direction === "left" ? -cardWidth : cardWidth,
         behavior: "smooth",
       });
     }
@@ -96,12 +99,12 @@ const Portfolio = () => {
   }, [filter]);
 
   return (
-    <div id="portfolio" className="px-6 md:px-16 py-12 md:pt-[72px]">
-      <h2 className="text-3xl md:text-4xl font-bold text-left mb-8 dark:text-white text-gray-800">
+    <div id="portfolio" className="px-6 md:px-16 py-12 pt-[72px]">
+      <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-left mb-8 dark:text-white text-gray-800">
         Some of my <span className="text-[#5044e5]">works</span>
-      </h2>
+      </h3>
 
-      <div className="flex gap-4 mb-6">
+      <div className="flex gap-4 mb-10 md:mb-6 text-xs md:text-base">
         <button
           className={`px-4 py-2 rounded-full text-white ${
             filter === "All" ? "bg-[#5044e5]" : "bg-[#3B3B3B]"
@@ -123,14 +126,14 @@ const Portfolio = () => {
         ))}
       </div>
 
-      <div className="relative md:px-14">
+      <div className="relative px-13 md:px-14">
         <button
           onClick={() => scroll("left")}
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#3B3B3B] text-white p-3 rounded-[50%] z-10"
         >
           <img
             alt="Scroll to left"
-            className="w-4 rotate-180"
+            className="rotate-180"
             src={assets.arrow_icon}
           />
         </button>
@@ -142,14 +145,14 @@ const Portfolio = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.name}
-              className="min-w-[300px] max-w-[300px] bg-[#3B3B3B] rounded-lg p-4 flex-shrink-0"
+              className="min-w-[225px] max-w-[225px] md:min-w-[300px] md:max-w-[300px] bg-[#3B3B3B] rounded-lg p-4 flex-shrink-0"
             >
               <img
                 src={project.image}
                 alt={project.name}
                 className="w-full h-48 object-cover rounded-md mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-white">
+              <h3 className="text-lg font-semibold mb-2 text-white truncate max-w-[200px]">
                 {project.name}
               </h3>
               <div className="flex justify-between">
@@ -172,7 +175,7 @@ const Portfolio = () => {
           onClick={() => scroll("right")}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#3B3B3B] text-white p-3 rounded-[50%] z-10"
         >
-          <img alt="Scroll to left" className="w-4" src={assets.arrow_icon} />
+          <img alt="Scroll to left" src={assets.arrow_icon} />
         </button>
       </div>
     </div>

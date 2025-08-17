@@ -7,12 +7,14 @@ import Skills from "./components/Skills";
 import ContactMe from "./components/ContactMe";
 import Footer from "./components/Footer";
 import Portfolio from "./components/Portfolio";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>(Theme.Light);
 
   return (
     <div className="dark:bg-black relative">
+      <Toaster />
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <About />

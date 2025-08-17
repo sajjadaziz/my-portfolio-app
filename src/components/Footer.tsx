@@ -9,7 +9,7 @@ type FooterProps = {
 const Footer = ({ theme }: FooterProps) => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 py-8">
-      <div className="flex flex-wrap justify-center gap-6 sm:gap-8 text-gray-700 dark:text-white text-sm sm:text-base mb-6">
+      <div className="flex flex-wrap justify-center gap-6 sm:gap-8 text-gray-700 dark:text-white text-[10px] sm:text-base mb-6">
         <a href="#" className="hover:border-b hover:border-gray-500 transition">
           Home
         </a>
