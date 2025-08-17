@@ -17,6 +17,12 @@ import java from "./java.svg";
 import sql from "./sql.svg";
 import git from "./git.svg";
 import figma from "./figma.svg";
+import person_icon from "./person_icon.svg";
+import email_icon from "./email_icon.svg";
+import arrow_icon from "./arrow_icon.svg";
+import mail_icon from "./mail_icon.svg";
+import call_icon from "./call_icon.svg";
+import location_icon from "./location_icon.svg";
 
 export const skills = [
   react,
@@ -41,6 +47,12 @@ export const assets = {
   menu_icon_dark,
   hero,
   about,
+  person_icon,
+  email_icon,
+  arrow_icon,
+  mail_icon,
+  call_icon,
+  location_icon,
 };
 
 export default assets;
