@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import { Theme } from "./types/Theme";
 import Hero from "./components/Hero";
+import About from "./components/About";
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>(Theme.Light);
@@ -10,6 +11,7 @@ const App = () => {
     <div className="dark:bg-black relative">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
+      <About />
     </div>
   );
 };
