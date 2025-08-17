@@ -27,6 +27,10 @@ import linkedin from "./linkedin.svg";
 import linkedin_dark from "./linkedin_dark.svg";
 import email from "./email.png";
 import email_dark from "./email_dark.png";
+import web1 from "./web1.png";
+import web2 from "./web2.png";
+import web3 from "./web3.png";
+import open_link from "./open_link.svg";
 
 export const skills = [
   react,
@@ -61,6 +65,10 @@ export const assets = {
   linkedin_dark,
   email,
   email_dark,
+  web1,
+  web2,
+  web3,
+  open_link,
 };
 
 export default assets;
