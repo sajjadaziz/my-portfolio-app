@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { Theme } from "./types/Theme";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Skills from "./components/Skills";
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>(Theme.Light);
@@ -12,6 +13,7 @@ const App = () => {
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <About />
+      <Skills />
     </div>
   );
 };
